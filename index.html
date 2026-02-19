@@ -1,47 +1,126 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>CA Final Tracker App</title>
+    <meta charset="UTF-8">
+    <title>CA Final Tracker – Smart Study System for CA Final</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <!-- CSS -->
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <header>
-        <h1>CA Final Tracker</h1>
-        <p>Your Personal CA Final Preparation System</p>
-    </header>
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">CA Final Tracker</div>
+            <div class="nav-links">
+                <a href="#features">Features</a>
+                <a href="#screenshots">Screenshots</a>
+                <a href="about.html">About</a>
+                <a href="download/CA-Final-Tracker-Setup.exe" class="nav-btn">
+                    Download
+                </a>
+            </div>
+        </div>
+    </nav>
 
+    <!-- HERO SECTION -->
     <section class="hero">
-        <h2>Track. Analyze. Improve.</h2>
-        <p>Offline desktop software built for serious CA Final students.</p>
+        <div class="container hero-content">
+            <div class="hero-text">
+                <h1>Crack CA Final With Structured Precision</h1>
+                <p>
+                    A powerful offline desktop system designed exclusively for serious CA Final aspirants.
+                    Plan smarter. Track progress. Improve daily.
+                </p>
 
-        <a href="download/CA-Final-Tracker-Setup.exe" class="btn">
-            Download for Windows
-        </a>
-    </section>
+                <div class="hero-buttons">
+                    <a href="download/CA-Final-Tracker-Setup.exe" class="btn-primary">
+                        Download for Windows
+                    </a>
+                    <a href="about.html" class="btn-secondary">
+                        Learn More
+                    </a>
+                </div>
+            </div>
 
-    <section class="screenshots">
-        <h2>App Screenshots</h2>
-
-        <div class="gallery">
-            <img src="screenshots/dashboard.png">
-            <img src="screenshots/study.png">
-            <img src="screenshots/reports.png">
+            <div class="hero-image">
+                <img src="screenshots/dashboard.png" alt="Dashboard Preview">
+            </div>
         </div>
     </section>
 
-    <section class="about-preview">
-        <h2>About The App</h2>
-        <p>
-            CA Final Tracker is a productivity-focused desktop application 
-            designed to help CA students plan, track, and optimize their preparation.
-        </p>
+    <!-- FEATURES -->
+    <section id="features" class="features">
+        <div class="container">
+            <h2>Why CA Final Tracker?</h2>
 
-        <a href="about.html">Read More →</a>
+            <div class="feature-grid">
+
+                <div class="feature-card">
+                    <h3>📊 Study Analytics</h3>
+                    <p>Visualize your daily hours, subject performance, and consistency trends.</p>
+                </div>
+
+                <div class="feature-card">
+                    <h3>🗓 Smart Planning</h3>
+                    <p>Structured revision cycles and attempt-based preparation system.</p>
+                </div>
+
+                <div class="feature-card">
+                    <h3>📈 Performance Tracking</h3>
+                    <p>Track mock tests, subject strengths, and weak areas.</p>
+                </div>
+
+                <div class="feature-card">
+                    <h3>💻 Fully Offline</h3>
+                    <p>No internet required. Your data stays secure on your system.</p>
+                </div>
+
+            </div>
+        </div>
     </section>
 
+    <!-- SCREENSHOTS -->
+    <section id="screenshots" class="screenshots">
+        <div class="container">
+            <h2>Application Screenshots</h2>
+
+            <div class="gallery">
+                <img src="screenshots/dashboard.png" alt="Dashboard">
+                <img src="screenshots/study.png" alt="Study Module">
+                <img src="screenshots/reports.png" alt="Reports">
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA SECTION -->
+    <section class="cta">
+        <div class="container">
+            <h2>Start Your Structured Preparation Today</h2>
+            <a href="download/CA-Final-Tracker-Setup.exe" class="btn-primary">
+                Download Now
+            </a>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
     <footer>
-        <p>© 2026 CA Final Tracker | Built by Chitransh Agrawal</p>
+        <div class="container footer-content">
+            <div>
+                <h3>CA Final Tracker</h3>
+                <p>Built for serious aspirants.</p>
+            </div>
+
+            <div>
+                <p>© 2026 CA Final Tracker</p>
+                <p>Built by Chitransh Agrawal</p>
+            </div>
+        </div>
     </footer>
 
 </body>
