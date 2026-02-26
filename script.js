@@ -1,42 +1,28 @@
-﻿function openRazorpayCheckout() {
-  const options = {
-    key: "rzp_test_ReplaceWithYourKey", // Replace with your Razorpay Key ID
-    amount: 499900, // Amount in paise = Rs 4,999.00
-    currency: "INR",
-    name: "CA Next Door",
-    description: "CA Next Door Study Tracker Purchase",
-    image: "https://cdn.razorpay.com/logos/GhRQcyean79PqE_medium.png",
-    handler: function (response) {
-      alert("Payment successful. Payment ID: " + response.razorpay_payment_id);
-    },
-    prefill: {
-      name: "",
-      email: "",
-      contact: ""
-    },
-    notes: {
-      product: "CA Next Door Study Tracker"
-    },
-    theme: {
-      color: "#2563eb"
-    }
-  };
-
-  const rzp = new Razorpay(options);
-
-  rzp.on("payment.failed", function (response) {
-    alert("Payment failed: " + response.error.description);
-  });
-
-  rzp.open();
-}
+const googleFormUrl = "https://forms.gle/dYdoFBPXWjQThG4YA";
+const fallbackQrUrl = "https://api.qrserver.com/v1/create-qr-code/?size=600x600&data=Payment%20QR";
+const paymentDoneBtn = document.getElementById("paymentDoneBtn");
+const paymentQr = document.getElementById("paymentQr");
 
 ["buyNowTop", "buyNowHero", "buyNowBottom"].forEach((id) => {
   const button = document.getElementById(id);
   if (button) {
-    button.addEventListener("click", openRazorpayCheckout);
+    button.addEventListener("click", () => {
+      window.location.href = "payment.html";
+    });
   }
 });
+
+if (paymentDoneBtn) {
+  paymentDoneBtn.addEventListener("click", () => {
+    window.open(googleFormUrl, "_blank", "noopener,noreferrer");
+  });
+}
+
+if (paymentQr) {
+  paymentQr.addEventListener("error", () => {
+    paymentQr.src = fallbackQrUrl;
+  });
+}
 
 const revealItems = document.querySelectorAll(".reveal");
 

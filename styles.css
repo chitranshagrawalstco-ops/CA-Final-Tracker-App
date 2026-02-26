@@ -22,6 +22,39 @@ html, body {
   overflow-x: clip;
 }
 
+.home-page {
+  position: relative;
+  isolation: isolate;
+}
+
+.home-page::before {
+  content: "";
+  position: fixed;
+  inset: -20% auto auto -12%;
+  width: 520px;
+  height: 520px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(56, 189, 248, 0.2), transparent 70%);
+  filter: blur(14px);
+  z-index: -4;
+  pointer-events: none;
+  animation: homeGlowA 10s ease-in-out infinite alternate;
+}
+
+.home-page::after {
+  content: "";
+  position: fixed;
+  inset: auto -14% -18% auto;
+  width: 560px;
+  height: 560px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(59, 130, 246, 0.22), transparent 70%);
+  filter: blur(18px);
+  z-index: -4;
+  pointer-events: none;
+  animation: homeGlowB 11.5s ease-in-out infinite alternate;
+}
+
 .bg-grid {
   position: fixed;
   inset: 0;
@@ -69,6 +102,21 @@ html, body {
   backdrop-filter: blur(12px);
   border-bottom: 1px solid rgba(148, 163, 184, 0.35);
   box-shadow: 0 8px 24px rgba(15, 23, 42, 0.12);
+  overflow: hidden;
+  animation: navPulse 4.6s ease-in-out infinite;
+}
+
+.navbar::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -30%;
+  width: 26%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.55), transparent);
+  transform: skewX(-18deg);
+  animation: navSweep 5.8s ease-in-out infinite;
+  pointer-events: none;
 }
 
 .nav-inner {
@@ -95,11 +143,30 @@ html, body {
   color: #1e3a8a;
   text-decoration: none;
   font-weight: 700;
-  transition: color 0.2s ease;
+  transition: color 0.2s ease, transform 0.2s ease;
+  position: relative;
 }
 
 .nav-links a:hover {
   color: #0f172a;
+  transform: translateY(-1px);
+}
+
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, #3b82f6, #22d3ee);
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 0.25s ease;
+}
+
+.nav-links a:hover::after {
+  transform: scaleX(1);
 }
 
 .hero {
@@ -292,6 +359,32 @@ h2 {
   line-height: 1.55;
 }
 
+.demo-video {
+  padding-top: 40px;
+}
+
+.demo-sub {
+  margin: 0 0 16px;
+  color: #94a3b8;
+  max-width: 70ch;
+}
+
+.video-wrap {
+  position: relative;
+  border-radius: 18px;
+  overflow: hidden;
+  border: 1px solid #334155;
+  background: #0b1020;
+  box-shadow: 0 18px 32px rgba(2, 6, 23, 0.45);
+}
+
+.video-wrap iframe {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border: 0;
+}
+
 .screenshots {
   background: linear-gradient(180deg, rgba(15, 23, 42, 0.32), rgba(15, 23, 42, 0.1));
 }
@@ -453,6 +546,223 @@ h2 {
   font-size: 0.92rem;
 }
 
+.payment-page {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  position: relative;
+  isolation: isolate;
+}
+
+.payment-page::before {
+  content: "";
+  position: absolute;
+  inset: 8% auto auto 8%;
+  width: 280px;
+  height: 280px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(56, 189, 248, 0.26), transparent 70%);
+  filter: blur(10px);
+  z-index: -1;
+  animation: paymentGlowA 7s ease-in-out infinite alternate;
+}
+
+.payment-page::after {
+  content: "";
+  position: absolute;
+  inset: auto 6% 6% auto;
+  width: 260px;
+  height: 260px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(59, 130, 246, 0.24), transparent 70%);
+  filter: blur(12px);
+  z-index: -1;
+  animation: paymentGlowB 8.5s ease-in-out infinite alternate;
+}
+
+.broadcast-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 40;
+  overflow: hidden;
+  white-space: nowrap;
+  background: rgba(37, 99, 235, 0.9);
+  border-bottom: 1px solid rgba(148, 163, 184, 0.35);
+  color: #f8fafc;
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+
+.broadcast-bar p {
+  margin: 0;
+  padding: 10px 0;
+  display: inline-block;
+  padding-left: 100%;
+  animation: broadcastScroll 18s linear infinite;
+}
+
+.payment-card {
+  width: min(92vw, 460px);
+  border-radius: 18px;
+  border: 1px solid #334155;
+  background:
+    linear-gradient(165deg, rgba(15, 31, 63, 0.88), rgba(16, 42, 82, 0.9)),
+    radial-gradient(circle at 15% 20%, rgba(56, 189, 248, 0.16), transparent 50%);
+  padding: 22px;
+  box-shadow: 0 24px 48px rgba(2, 6, 23, 0.55);
+  text-align: center;
+  backdrop-filter: blur(8px);
+}
+
+.payment-back {
+  display: inline-block;
+  margin-bottom: 8px;
+  color: #93c5fd;
+  text-decoration: none;
+  font-weight: 700;
+}
+
+.payment-card h1 {
+  margin: 6px 0 8px;
+  font-size: 1.7rem;
+}
+
+.payment-card p {
+  margin: 0 0 14px;
+  color: #94a3b8;
+}
+
+.payment-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  align-items: stretch;
+  margin-bottom: 14px;
+}
+
+.payment-page-qr {
+  width: 100%;
+  max-width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: 14px;
+  border: 1px solid #334155;
+  background: #0b1020;
+  display: block;
+  margin: 0;
+}
+
+.price-card {
+  border: 1px solid #334155;
+  border-radius: 14px;
+  background: rgba(15, 23, 42, 0.82);
+  padding: 12px;
+  text-align: left;
+}
+
+.price-card h3 {
+  margin: 0 0 10px;
+  font-size: 1rem;
+  color: #bfdbfe;
+}
+
+.price-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 0;
+  border-bottom: 1px dashed #334155;
+  color: #cbd5e1;
+  font-size: 0.92rem;
+}
+
+.price-row:last-of-type {
+  border-bottom: 0;
+}
+
+.price-row strong {
+  color: #f8fafc;
+}
+
+.price-note {
+  margin: 8px 0 0;
+  color: #94a3b8;
+  font-size: 0.8rem;
+  line-height: 1.4;
+}
+
+.payment-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  display: none;
+}
+
+.payment-modal.is-open {
+  display: grid;
+  place-items: center;
+}
+
+.payment-modal__backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(2, 6, 23, 0.72);
+  backdrop-filter: blur(2px);
+}
+
+.payment-modal__dialog {
+  position: relative;
+  width: min(92vw, 420px);
+  background: linear-gradient(165deg, #0f1f3f, #102a52);
+  border: 1px solid #334155;
+  border-radius: 16px;
+  padding: 18px;
+  box-shadow: 0 24px 48px rgba(2, 6, 23, 0.55);
+  z-index: 1;
+}
+
+.payment-modal__close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  border: 0;
+  background: transparent;
+  color: #cbd5e1;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.payment-modal__dialog h3 {
+  margin: 0 0 6px;
+  font-size: 1.2rem;
+}
+
+.payment-modal__sub {
+  margin: 0 0 14px;
+  color: #94a3b8;
+  font-size: 0.9rem;
+}
+
+.payment-modal__qr {
+  width: 100%;
+  max-width: 300px;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: 12px;
+  border: 1px solid #334155;
+  background: #0b1020;
+  display: block;
+  margin: 0 auto 14px;
+}
+
+.payment-modal__done {
+  width: 100%;
+}
+
 .reveal {
   opacity: 0;
   transform: translateY(28px);
@@ -558,6 +868,59 @@ h2 {
   }
 }
 
+@keyframes broadcastScroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+@keyframes paymentGlowA {
+  0% {
+    transform: translate(0, 0) scale(0.95);
+    opacity: 0.7;
+  }
+  100% {
+    transform: translate(18px, -14px) scale(1.06);
+    opacity: 1;
+  }
+}
+
+@keyframes paymentGlowB {
+  0% {
+    transform: translate(0, 0) scale(0.94);
+    opacity: 0.65;
+  }
+  100% {
+    transform: translate(-16px, 12px) scale(1.08);
+    opacity: 1;
+  }
+}
+
+@keyframes homeGlowA {
+  0% {
+    transform: translate(0, 0) scale(0.95);
+    opacity: 0.72;
+  }
+  100% {
+    transform: translate(36px, -24px) scale(1.08);
+    opacity: 1;
+  }
+}
+
+@keyframes homeGlowB {
+  0% {
+    transform: translate(0, 0) scale(0.94);
+    opacity: 0.68;
+  }
+  100% {
+    transform: translate(-34px, 28px) scale(1.1);
+    opacity: 1;
+  }
+}
+
 @media (max-width: 860px) {
   .hero-content {
     grid-template-columns: 1fr;
@@ -597,6 +960,10 @@ h2 {
     flex-direction: column;
     align-items: flex-start;
   }
+
+  .payment-layout {
+    grid-template-columns: 1fr;
+  }
 }
 
 .logo {
@@ -611,4 +978,36 @@ h2 {
   border-radius: 8px;
   object-fit: cover;
   box-shadow: 0 6px 16px rgba(37, 99, 235, 0.25);
+  animation: logoFloat 3.4s ease-in-out infinite;
+}
+
+@keyframes navSweep {
+  0%,
+  25% {
+    left: -35%;
+  }
+  75%,
+  100% {
+    left: 125%;
+  }
+}
+
+@keyframes navPulse {
+  0%,
+  100% {
+    box-shadow: 0 8px 24px rgba(15, 23, 42, 0.12);
+  }
+  50% {
+    box-shadow: 0 10px 30px rgba(59, 130, 246, 0.2);
+  }
+}
+
+@keyframes logoFloat {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-2px);
+  }
 }

@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Payment - CA Next Door</title>
+  <meta name="description" content="Complete your CA Next Door payment and continue to form submission." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="bg-orb orb-1" aria-hidden="true"></div>
+  <div class="bg-orb orb-2" aria-hidden="true"></div>
+  <div class="bg-grid" aria-hidden="true"></div>
+
+  <div class="broadcast-bar" aria-label="Payment instruction">
+    <p>Kindly Make the required payment and fill the google form by clicking payment made button.</p>
+  </div>
+
+  <main class="payment-page">
+    <section class="payment-card">
+      <a class="payment-back" href="index.html">Back to Home</a>
+      <h1>Scan QR to Pay</h1>
+      <p>After payment is complete, click the button below to fill the form.</p>
+      <div class="payment-layout">
+        <img id="paymentQr" class="payment-page-qr" src="assets/payment-qr.jpeg" alt="Payment QR Code" />
+        <aside class="price-card" aria-label="Current prices">
+          <h3>Current Prices</h3>
+          <div class="price-row">
+            <span>Early Bird</span>
+            <strong>Rs 249</strong>
+          </div>
+          <p class="price-note">Available till 31st March 2026</p>
+          <div class="price-row">
+            <span>Normal Price</span>
+            <strong>Rs 499</strong>
+          </div>
+          <p class="price-note">Choose the plan you are paying for, then click Payment Done.</p>
+        </aside>
+      </div>
+      <button id="paymentDoneBtn" class="btn btn-primary" type="button">Payment Done</button>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
