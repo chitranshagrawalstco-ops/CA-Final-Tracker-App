@@ -1,0 +1,122 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CA Next Door Study Tracker</title>
+  <meta name="description" content="CA Next Door Study Tracker helps CA Final students plan, track, and finish preparation with measurable progress." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="bg-orb orb-1" aria-hidden="true"></div>
+  <div class="bg-orb orb-2" aria-hidden="true"></div>
+  <div class="bg-grid" aria-hidden="true"></div>
+
+  <nav class="navbar">
+    <div class="container nav-inner">
+      <div class="logo"><img src="assets/logo.png" alt="CA Next Door logo" class="logo-img" /><span>CA Next Door</span></div>
+      <div class="nav-links">
+        <a href="#features">Features</a>
+        <a href="#screenshots">Screens</a>
+        <button id="buyNowTop" class="btn btn-nav" type="button">Buy Now</button>
+      </div>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <div class="container hero-content">
+      <div class="hero-text reveal">
+        <p class="tag">CA FINAL STUDY TRACKER</p>
+        <h1>Prepare with <span class="gradient-text">clarity, consistency, and control</span>.</h1>
+        <p>
+          Plan daily targets, track subject-wise completion, and manage revisions in one focused workflow built for CA Final aspirants.
+        </p>
+        <div class="hero-cta-row">
+          <button id="buyNowHero" class="btn btn-primary" type="button">Buy Now</button>
+          <span class="hero-note">One-time payment. Lifetime access.</span>
+        </div>
+      </div>
+      <div class="hero-visual reveal" aria-label="App preview">
+        <div class="preview-card">
+          <h3>Today</h3>
+          <p>FR - Consolidation</p>
+          <p>2h 40m completed</p>
+          <div class="bar"><span></span></div>
+        </div>
+        <div class="floating-chip chip-a">Consistency: 24 days</div>
+        <div class="floating-chip chip-b">Syllabus: 72%</div>
+      </div>
+    </div>
+  </header>
+
+  <section id="features" class="section features">
+    <div class="container">
+      <h2 class="reveal">Everything You Need to Stay on Track</h2>
+      <div class="feature-grid">
+        <article class="feature-card reveal">
+          <h3>Progress Analytics</h3>
+          <p>View your daily study hours, completion trends, and consistency at a glance.</p>
+        </article>
+        <article class="feature-card reveal">
+          <h3>Smart Planning</h3>
+          <p>Create realistic plans by subject, chapter, and revision priority.</p>
+        </article>
+        <article class="feature-card reveal">
+          <h3>Revision Control</h3>
+          <p>Track first, second, and final revisions so no topic gets left behind.</p>
+        </article>
+        <article class="feature-card reveal">
+          <h3>Exam-Ready Workflow</h3>
+          <p>Designed specifically for serious CA Final preparation and execution.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="screenshots" class="section screenshots">
+    <div class="container">
+      <h2 class="reveal">App Feature Preview</h2>
+      <div class="gallery carousel reveal" id="featureCarousel">
+        <div class="carousel-frame">
+          <img class="carousel-slide active" src="assets/01_Dashboard.png" alt="Dashboard screen" data-title="Dashboard" />
+          <img class="carousel-slide" src="assets/02_My_Subjects.png" alt="My Subjects screen" data-title="My Subjects" />
+          <img class="carousel-slide" src="assets/03_Daily_Tasks.png" alt="Daily Tasks screen" data-title="Daily Tasks" />
+          <img class="carousel-slide" src="assets/04_Late_Tasks_Backlog.png" alt="Late Tasks Backlog screen" data-title="Late Tasks Backlog" />
+          <img class="carousel-slide" src="assets/05_Revision_Tracker.png" alt="Revision Tracker screen" data-title="Revision Tracker" />
+          <img class="carousel-slide" src="assets/06_Smart_Plan.png" alt="Smart Plan screen" data-title="Smart Plan" />
+          <img class="carousel-slide" src="assets/07_AI_Help.png" alt="AI Help screen" data-title="AI Help" />
+          <img class="carousel-slide" src="assets/08_My_Goals.png" alt="My Goals screen" data-title="My Goals" />
+          <img class="carousel-slide" src="assets/09_Study_Hours.png" alt="Study Hours screen" data-title="Study Hours" />
+          <img class="carousel-slide" src="assets/10_Useful_Links.png" alt="Useful Links screen" data-title="Useful Links" />
+          <img class="carousel-slide" src="assets/11_Features_Guide.png" alt="Features Guide screen" data-title="Features Guide" />
+        </div>
+        <div class="carousel-footer">
+          <p id="carouselTitle" class="carousel-title">Dashboard</p>
+          <div id="carouselDots" class="carousel-dots" aria-label="Screenshot navigation"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta">
+    <div class="container cta-content reveal">
+      <h2>Start Structured Preparation Today</h2>
+      <p>Turn your effort into measurable progress with a tracker built for CA Final outcomes.</p>
+      <button id="buyNowBottom" class="btn btn-primary" type="button">Buy Now</button>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <p><strong>CA Next Door</strong> - Built for serious aspirants.</p>
+      <p>© 2026 CA Next Door</p>
+    </div>
+  </footer>
+
+  <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
