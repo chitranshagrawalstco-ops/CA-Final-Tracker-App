@@ -33,8 +33,21 @@ import {
   Bell,
   Cpu,
   Target,
-  Eye
+  Eye,
+  Apple
 } from 'lucide-react';
+
+const WindowsIcon = (props) => (
+  <svg viewBox="0 0 24 24" width="1em" height="1em" fill="currentColor" {...props}>
+    <path d="M0 3.449L9.75 2.1v9.45H0V3.449zM0 12.45h9.75v9.45L0 20.551v-8.1zM10.95 1.95L24 0v11.55H10.95V1.95zM10.95 12.45H24v11.55l-13.05-1.95v-9.6z"/>
+  </svg>
+);
+
+const AndroidIcon = (props) => (
+  <svg viewBox="0 0 24 24" width="1em" height="1em" fill="currentColor" {...props}>
+    <path d="M6 18c0 .55.45 1 1 1h1v3.5c0 .83.67 1.5 1.5 1.5s1.5-.67 1.5-1.5V19h2v3.5c0 .83.67 1.5 1.5 1.5s1.5-.67 1.5-1.5V19h1c.55 0 1-.45 1-1V8H6v10zM3.5 8C2.67 8 2 8.67 2 9.5v7c0 .83.67 1.5 1.5 1.5S5 17.33 5 16.5v-7C5 8.67 4.33 8 3.5 8zm17 0c-.83 0-1.5.67-1.5 1.5v7c0 .83.67 1.5 1.5 1.5s1.5-.67 1.5-1.5v-7c0-.83-.67-1.5-1.5-1.5zm-4.97-4.18l1.3-1.3a.49.49 0 0 0 0-.7c-.2-.2-.51-.2-.7 0l-1.46 1.46C13.78 2.89 12.91 2.5 12 2.5s-1.78.39-2.67.78L7.87 1.82a.49.49 0 0 0-.7 0c-.2.2-.2.51 0 .7l1.3 1.3C6.73 5.07 5.75 7.15 5.54 9.5h12.92c-.21-2.35-1.19-4.43-2.93-5.68zM9 7c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1zm6 0c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1z"/>
+  </svg>
+);
 
 const demoVideos = [
   {
@@ -598,14 +611,36 @@ export default function App() {
             >
               Watch Demo
             </button>
-            <a 
-              href="https://t.me/canextdoorofficial"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="px-5 py-2.5 text-sm font-extrabold bg-indigo-600 border border-black text-white rounded-xl shadow-[2px_2px_0px_0px_rgba(255,255,255,0.15)] hover:shadow-none hover:translate-x-[1px] hover:translate-y-[1px] transition-all flex items-center gap-2"
-            >
-              <Download size={15} /> Download App
-            </a>
+            <div className="relative group/download">
+              <button 
+                className="px-5 py-2.5 text-sm font-extrabold bg-indigo-600 border border-black text-white rounded-xl shadow-[2px_2px_0px_0px_rgba(255,255,255,0.15)] hover:shadow-none hover:translate-x-[1px] hover:translate-y-[1px] transition-all flex items-center gap-2"
+              >
+                <Download size={15} /> Download App <ChevronDown size={14} />
+              </button>
+              <div className="absolute right-0 mt-2 w-64 bg-slate-900 border border-black rounded-xl shadow-[4px_4px_0px_0px_rgba(255,255,255,0.15)] hidden group-hover/download:block hover:block z-50 overflow-hidden text-white font-extrabold text-xs">
+                <a 
+                  href="https://drive.google.com/drive/folders/19pTyND5nk5zRfYvgpYzeFcg_5i9ZAIT1?usp=sharing"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2.5 px-4 py-3 hover:bg-slate-800 transition-colors border-b border-slate-800"
+                >
+                  <WindowsIcon className="w-4 h-4 text-indigo-400" />
+                  <span>Download for Windows</span>
+                </a>
+                <a 
+                  href="https://drive.google.com/drive/folders/1_fGny8pmpkHU6SWmnnNXwpKM-nJoF1Gt?usp=sharing"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2.5 px-4 py-3 hover:bg-slate-800 transition-colors"
+                >
+                  <div className="flex gap-1 text-indigo-400">
+                    <AndroidIcon className="w-4 h-4" />
+                    <Apple className="w-4 h-4 fill-current" />
+                  </div>
+                  <span>Download for Mobile/Tablet</span>
+                </a>
+              </div>
+            </div>
           </div>
 
           {/* Mobile Toggle */}
@@ -679,13 +714,26 @@ export default function App() {
                   Watch Demo
                 </button>
                 <a 
-                  href="https://t.me/canextdoorofficial"
+                  href="https://drive.google.com/drive/folders/19pTyND5nk5zRfYvgpYzeFcg_5i9ZAIT1?usp=sharing"
                   target="_blank"
                   rel="noopener noreferrer"
                   onClick={() => setMobileMenuOpen(false)}
                   className="w-full py-2.5 text-center font-extrabold bg-indigo-600 border border-black text-white rounded-xl shadow-[2px_2px_0px_0px_rgba(255,255,255,0.15)] hover:shadow-none hover:translate-x-[1px] hover:translate-y-[1px] transition-all flex items-center justify-center gap-2"
                 >
-                  <Download size={15} /> Download App
+                  <WindowsIcon className="w-4 h-4" /> Download for Windows
+                </a>
+                <a 
+                  href="https://drive.google.com/drive/folders/1_fGny8pmpkHU6SWmnnNXwpKM-nJoF1Gt?usp=sharing"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="w-full py-2.5 text-center font-extrabold bg-indigo-600 border border-black text-white rounded-xl shadow-[2px_2px_0px_0px_rgba(255,255,255,0.15)] hover:shadow-none hover:translate-x-[1px] hover:translate-y-[1px] transition-all flex items-center justify-center gap-2"
+                >
+                  <div className="flex gap-1 items-center">
+                    <AndroidIcon className="w-4 h-4" />
+                    <Apple className="w-4 h-4 fill-current" />
+                  </div>
+                  Download for Mobile/Tablet
                 </a>
               </div>
             </motion.div>
@@ -716,18 +764,30 @@ export default function App() {
             </p>
 
             {/* CTA buttons */}
-            <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start pt-2">
+            <div className="flex flex-col sm:flex-row flex-wrap gap-4 justify-center lg:justify-start pt-2">
               <a 
-                href="https://t.me/canextdoorofficial"
+                href="https://drive.google.com/drive/folders/19pTyND5nk5zRfYvgpYzeFcg_5i9ZAIT1?usp=sharing"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-8 py-4 bg-indigo-600 hover:bg-indigo-700 text-white rounded-2xl font-extrabold border border-black shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] hover:shadow-none hover:translate-x-[2px] hover:translate-y-[2px] transition-all flex items-center justify-center gap-2 group"
+                className="px-6 py-4 bg-indigo-600 hover:bg-indigo-700 text-white rounded-2xl font-extrabold border border-black shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] hover:shadow-none hover:translate-x-[2px] hover:translate-y-[2px] transition-all flex items-center justify-center gap-2 group"
               >
-                <Download size={18} /> Get Started Now <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
+                <WindowsIcon className="w-5 h-5" /> Download for Windows
+              </a>
+              <a 
+                href="https://drive.google.com/drive/folders/1_fGny8pmpkHU6SWmnnNXwpKM-nJoF1Gt?usp=sharing"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-6 py-4 bg-indigo-600 hover:bg-indigo-700 text-white rounded-2xl font-extrabold border border-black shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] hover:shadow-none hover:translate-x-[2px] hover:translate-y-[2px] transition-all flex items-center justify-center gap-2 group"
+              >
+                <div className="flex gap-1 items-center">
+                  <AndroidIcon className="w-5 h-5" />
+                  <Apple className="w-5 h-5 fill-current" />
+                </div>
+                Download for Mobile/Tablet
               </a>
               <button 
                 onClick={() => setShowDemoModal(true)}
-                className="px-8 py-4 bg-white border border-black text-slate-950 hover:bg-slate-50 rounded-2xl font-extrabold flex items-center justify-center gap-2 transition-all shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] hover:shadow-none hover:translate-x-[2px] hover:translate-y-[2px]"
+                className="px-6 py-4 bg-white border border-black text-slate-955 hover:bg-slate-50 rounded-2xl font-extrabold flex items-center justify-center gap-2 transition-all shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] hover:shadow-none hover:translate-x-[2px] hover:translate-y-[2px]"
               >
                 <Play size={16} className="fill-slate-955 text-slate-955" /> Watch Demo
               </button>
@@ -1826,12 +1886,24 @@ export default function App() {
                           </button>
 
                           <a
-                            href="https://t.me/canextdoorofficial"
+                            href="https://drive.google.com/drive/folders/19pTyND5nk5zRfYvgpYzeFcg_5i9ZAIT1?usp=sharing"
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="bg-indigo-600 hover:bg-indigo-700 text-white font-extrabold px-5 py-2.5 rounded-xl border border-black shadow-[2.5px_2.5px_0px_0px_rgba(0,0,0,1)] text-xs flex items-center gap-1.5"
+                            className="bg-indigo-600 hover:bg-indigo-700 text-white font-extrabold px-4 py-2.5 rounded-xl border border-black shadow-[2.5px_2.5px_0px_0px_rgba(0,0,0,1)] text-xs flex items-center gap-1.5"
                           >
-                            Download Full App For Custom Tests <ArrowRight size={14} />
+                            <WindowsIcon className="w-3.5 h-3.5" /> Windows App
+                          </a>
+                          <a
+                            href="https://drive.google.com/drive/folders/1_fGny8pmpkHU6SWmnnNXwpKM-nJoF1Gt?usp=sharing"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="bg-indigo-600 hover:bg-indigo-700 text-white font-extrabold px-4 py-2.5 rounded-xl border border-black shadow-[2.5px_2.5px_0px_0px_rgba(0,0,0,1)] text-xs flex items-center gap-1.5"
+                          >
+                            <div className="flex gap-0.5">
+                              <AndroidIcon className="w-3.5 h-3.5" />
+                              <Apple className="w-3.5 h-3.5 fill-current" />
+                            </div>
+                            Mobile/Tablet App
                           </a>
                         </div>
 
@@ -1942,14 +2014,26 @@ export default function App() {
                   </ul>
                 </div>
 
-                <div className="pt-4">
+                <div className="pt-4 flex flex-wrap gap-3">
                   <a 
-                    href="https://t.me/canextdoorofficial"
+                    href="https://drive.google.com/drive/folders/19pTyND5nk5zRfYvgpYzeFcg_5i9ZAIT1?usp=sharing"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 px-6 py-3.5 bg-black hover:bg-slate-900 text-white rounded-xl text-sm font-extrabold border border-black shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] hover:shadow-none hover:translate-x-[2px] hover:translate-y-[2px] transition-all"
+                    className="inline-flex items-center gap-2 px-5 py-3 bg-black hover:bg-slate-900 text-white rounded-xl text-xs font-extrabold border border-black shadow-[2.5px_2.5px_0px_0px_rgba(0,0,0,1)] hover:shadow-none hover:translate-x-[1.5px] hover:translate-y-[1.5px] transition-all"
                   >
-                    Use this system <ArrowRight size={16} />
+                    <WindowsIcon className="w-4 h-4 text-indigo-400" /> Windows
+                  </a>
+                  <a 
+                    href="https://drive.google.com/drive/folders/1_fGny8pmpkHU6SWmnnNXwpKM-nJoF1Gt?usp=sharing"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 px-5 py-3 bg-black hover:bg-slate-900 text-white rounded-xl text-xs font-extrabold border border-black shadow-[2.5px_2.5px_0px_0px_rgba(0,0,0,1)] hover:shadow-none hover:translate-x-[1.5px] hover:translate-y-[1.5px] transition-all"
+                  >
+                    <div className="flex gap-0.5 text-indigo-400">
+                      <AndroidIcon className="w-4 h-4" />
+                      <Apple className="w-4 h-4 fill-current" />
+                    </div>
+                    Mobile/Tablet
                   </a>
                 </div>
               </div>
@@ -2097,12 +2181,24 @@ export default function App() {
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center relative z-10">
             <a 
-              href="https://t.me/canextdoorofficial"
+              href="https://drive.google.com/drive/folders/19pTyND5nk5zRfYvgpYzeFcg_5i9ZAIT1?usp=sharing"
               target="_blank"
               rel="noopener noreferrer"
               className="px-8 py-4 bg-indigo-600 hover:bg-indigo-700 text-white rounded-2xl font-extrabold border border-black shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] hover:shadow-none hover:translate-x-[2px] hover:translate-y-[2px] transition-all flex items-center justify-center gap-2 group"
             >
-              <Download size={18} /> Download Now <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
+              <WindowsIcon className="w-5 h-5" /> Download for Windows
+            </a>
+            <a 
+              href="https://drive.google.com/drive/folders/1_fGny8pmpkHU6SWmnnNXwpKM-nJoF1Gt?usp=sharing"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-8 py-4 bg-indigo-600 hover:bg-indigo-700 text-white rounded-2xl font-extrabold border border-black shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] hover:shadow-none hover:translate-x-[2px] hover:translate-y-[2px] transition-all flex items-center justify-center gap-2 group"
+            >
+              <div className="flex gap-1 items-center">
+                <AndroidIcon className="w-5 h-5" />
+                <Apple className="w-5 h-5 fill-current" />
+              </div>
+              Download for Mobile/Tablet
             </a>
             <button 
               onClick={() => setShowDemoModal(true)}
